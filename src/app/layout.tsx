@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
       <PrismicPreview repositoryName={repositoryName} />
-      <Script src="https://static.cdn.prismic.io/prismic.js?new=true&repo=god-3" a />
+      {/* <Script src="https://static.cdn.prismic.io/prismic.js?new=true&repo=god-3"  /> */}
     </html>
   );
 }
