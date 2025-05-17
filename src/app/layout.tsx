@@ -1,6 +1,6 @@
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
-import Script from 'next/script'
+// import Script from 'next/script'
 
 export default function RootLayout({
   children,
