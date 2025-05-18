@@ -27,11 +27,12 @@ const routes: Route[] = [
  * @param config - Configuration for the Prismic client.
  */
 export function createClient(config: ClientConfig = {}) {
+  console.log("----createClient", process.env.NODE_ENV)
   const client = baseCreateClient(sm.apiEndpoint || repositoryName, {
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+        ? { next: { revalidate: 5 } }
         : { next: { revalidate: 5 } },
     ...config,
   });
