@@ -9,7 +9,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <p>Environment: {process.env.ENVIRONMEN}</p>
+      <p>Environment: {process.env.ENVIRONMENT}</p>
       <hr/>
       <body>{children}</body>
       {process.env.ENVIRONMENT === "production" ? null : ( <PrismicPreview repositoryName={repositoryName} />)}
