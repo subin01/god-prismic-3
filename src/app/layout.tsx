@@ -9,6 +9,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <p>DEVELOP</p>
+      <hr/>
       <body>{children}</body>
       <PrismicPreview repositoryName={repositoryName} />
       {/* <Script src="https://static.cdn.prismic.io/prismic.js?new=true&repo=god-3"  /> */}
