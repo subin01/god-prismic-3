@@ -17,7 +17,7 @@ const Navigation: FC<NavigationProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-     {slice.primary.nav.map((item) => <span key={item.link}><PrismicNextLink field={item.link} /></span>)}
+     {slice.primary.nav.map((item,i) => <span key={i}><PrismicNextLink field={item.link} /></span>)}
     </section>
   );
 };
