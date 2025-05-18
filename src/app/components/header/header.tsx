@@ -1,5 +1,4 @@
 
-import { asText, filter } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 
