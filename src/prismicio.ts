@@ -32,7 +32,7 @@ export function createClient(config: ClientConfig = {}) {
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
-        ? { next: { revalidate: 600 /* 10 min */ } }
+        ? { next: { revalidate: 120 /* 2 min */ } }
         : { next: { revalidate: 5 } },
     ...config,
   });
