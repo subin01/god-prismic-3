@@ -12,7 +12,7 @@ export default async function Header() {
     <header>
       <p>{ header.data.logo}</p>
       <ul>
-       { header.data.links.map((item) => <li key={item.link.id}><PrismicNextLink field={item.link} /></li>)}
+       { header.data.links.map((item) => <li key={item.link}><PrismicNextLink field={item.link} /></li>)}
        </ul>
        <hr/>
     </header>
