@@ -9,11 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <p>DEVELOP</p>
+      <p>Environment: {process.env.ENVIRONMEN}</p>
       <hr/>
       <body>{children}</body>
-      <PrismicPreview repositoryName={repositoryName} />
-      {/* <Script src="https://static.cdn.prismic.io/prismic.js?new=true&repo=god-3"  /> */}
+      {process.env.ENVIRONMENT === "production" ? null : ( <PrismicPreview repositoryName={repositoryName} />)}
     </html>
   );
 }
