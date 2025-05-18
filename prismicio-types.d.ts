@@ -4,6 +4,60 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Header → links*
+ */
+export interface HeaderDocumentDataLinksItem {
+  /**
+   * link field in *Header → links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * links field in *Header*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links: prismic.GroupField<Simplify<HeaderDocumentDataLinksItem>>;
+
+  /**
+   * logo field in *Header*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logo: prismic.KeyTextField;
+}
+
+/**
+ * Header document from Prismic
+ *
+ * - **API ID**: `header`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
+
 type PageDocumentDataSlicesSlice = NavigationSlice | RichTextSlice;
 
 /**
@@ -76,7 +130,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes = HeaderDocument | PageDocument;
 
 /**
  * Item in *Navigation → Default → Primary → Nav*
@@ -204,6 +258,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HeaderDocument,
+      HeaderDocumentData,
+      HeaderDocumentDataLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

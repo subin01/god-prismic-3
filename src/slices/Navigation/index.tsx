@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -18,7 +17,7 @@ const Navigation: FC<NavigationProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-     {slice.primary.nav.map((item) => <PrismicNextLink field={item.link} />)}
+     {slice.primary.nav.map((item) => <span key={item.link}><PrismicNextLink field={item.link} /></span>)}
     </section>
   );
 };
